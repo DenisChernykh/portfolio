@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title>DC favicon</title>
+  <desc>Dark rounded DC monogram with electric AI workflow nodes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="10" y1="6" x2="56" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#141a20"/>
+      <stop offset="0.55" stop-color="#090c10"/>
+      <stop offset="1" stop-color="#12140e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="12" y1="12" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d8ff3e"/>
+      <stop offset="1" stop-color="#55d7c6"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <path d="M13 45V19h12c8 0 13 5 13 13s-5 13-13 13H13Zm7-6h4.6c4.4 0 6.8-2.6 6.8-7s-2.4-7-6.8-7H20v14Z" fill="#f7f6ed"/>
+  <path d="M50 43.8c-7.4 0-12.6-4.9-12.6-11.8S42.6 20.2 50 20.2c2.8 0 5.4.7 7.5 2.2l-2.3 5.2c-1.5-.9-3-1.4-4.9-1.4-3.8 0-6.2 2.3-6.2 5.8s2.4 5.8 6.2 5.8c1.9 0 3.4-.5 4.9-1.4l2.3 5.2c-2.1 1.5-4.7 2.2-7.5 2.2Z" fill="#f7f6ed"/>
+  <path d="M17 15h30M17 49h30" stroke="#d8ff3e" stroke-width="2" stroke-linecap="round" opacity=".9"/>
+  <path d="M48 15l7 7M48 49l7-7" stroke="url(#accent)" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="17" cy="15" r="3.2" fill="#d8ff3e" filter="url(#glow)"/>
+  <circle cx="47" cy="15" r="2.4" fill="#55d7c6" filter="url(#glow)"/>
+  <circle cx="47" cy="49" r="2.4" fill="#d8ff3e" filter="url(#glow)"/>
+</svg>

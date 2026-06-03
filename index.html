@@ -1,0 +1,1431 @@
+<!doctype html>
+<html lang="ru" data-page="home">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Денис Черных — Frontend, AI и автоматизация</title>
+    <meta
+      name="description"
+      content="Frontend-разработка, AI-усиление и автоматизация для малого бизнеса: страницы, интерфейсы, Telegram mini apps и рабочие инструменты."
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <style>
+      @font-face {
+        font-family: "Manrope";
+        src: url("assets/fonts/Manrope-wght.ttf") format("truetype");
+        font-weight: 400 800;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Unbounded";
+        src: url("assets/fonts/Unbounded-wght.ttf") format("truetype");
+        font-weight: 500 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --hero: #07090d;
+        --hero-2: #10141c;
+        --bg: #f4efe6;
+        --paper: #fffaf1;
+        --paper-2: #ebe3d5;
+        --ink: #161511;
+        --muted: #716b60;
+        --muted-dark: #aeb8b7;
+        --line: rgba(22, 21, 17, 0.14);
+        --line-dark: rgba(225, 255, 232, 0.18);
+        --accent: #d8ff3e;
+        --accent-2: #55d7c6;
+        --warm: #f0734f;
+        --radius: 8px;
+        --container: 1180px;
+        --header-height: 72px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Manrope", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        letter-spacing: 0;
+      }
+
+      body::selection {
+        background: rgba(216, 255, 62, 0.45);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      button,
+      a {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .skip-link {
+        position: absolute;
+        top: -44px;
+        left: 16px;
+        z-index: 50;
+        padding: 10px 14px;
+        border-radius: var(--radius);
+        background: var(--accent);
+        color: #10140b;
+        font-weight: 800;
+      }
+
+      .skip-link:focus {
+        top: 16px;
+      }
+
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .site-header {
+        position: absolute;
+        inset: 0 0 auto;
+        z-index: 10;
+        color: white;
+      }
+
+      .nav {
+        width: min(var(--container), calc(100% - 40px));
+        min-height: var(--header-height);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 216px;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(216, 255, 62, 0.4);
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--accent);
+        font-family: "Unbounded", ui-sans-serif, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .brand-text {
+        display: grid;
+        gap: 2px;
+      }
+
+      .brand-name {
+        color: #f8f7ef;
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .brand-role {
+        color: var(--muted-dark);
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        color: rgba(248, 247, 239, 0.72);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .nav-links a {
+        transition:
+          color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent);
+        transform: translateY(-1px);
+      }
+
+      .nav-actions {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .language-switcher {
+        min-height: 42px;
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+        padding: 3px;
+        border: 1px solid rgba(248, 247, 239, 0.18);
+        border-radius: var(--radius);
+        background: rgba(7, 9, 13, 0.42);
+        backdrop-filter: blur(16px);
+      }
+
+      .language-switcher button {
+        min-width: 34px;
+        min-height: 34px;
+        padding: 0 8px;
+        border: 0;
+        border-radius: 6px;
+        background: transparent;
+        color: rgba(248, 247, 239, 0.68);
+        font: inherit;
+        font-size: 12px;
+        font-weight: 900;
+        cursor: pointer;
+        transition:
+          background 180ms ease,
+          color 180ms ease;
+      }
+
+      .language-switcher button:hover,
+      .language-switcher button[aria-pressed="true"] {
+        background: var(--accent);
+        color: #10140b;
+      }
+
+      .header-cta,
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border-radius: var(--radius);
+        font-weight: 800;
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          background 180ms ease,
+          color 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .header-cta {
+        min-height: 42px;
+        padding: 0 16px;
+        border: 1px solid rgba(216, 255, 62, 0.35);
+        background: rgba(7, 9, 13, 0.52);
+        color: #f8f7ef;
+        font-size: 14px;
+        backdrop-filter: blur(16px);
+      }
+
+      .header-cta:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        transform: translateY(-1px);
+      }
+
+      .icon {
+        width: 18px;
+        height: 18px;
+        flex: 0 0 auto;
+        stroke-width: 2.2;
+      }
+
+      .container {
+        width: min(var(--container), calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 94svh;
+        overflow: hidden;
+        color: #f8f7ef;
+        background:
+          radial-gradient(circle at 74% 34%, rgba(85, 215, 198, 0.2), transparent 32%),
+          linear-gradient(110deg, rgba(7, 9, 13, 0.98) 0%, rgba(7, 9, 13, 0.88) 38%, rgba(7, 9, 13, 0.36) 72%, rgba(7, 9, 13, 0.9) 100%),
+          var(--hero);
+      }
+
+      .hero-media {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+        opacity: 0.74;
+        filter: saturate(1.04) contrast(1.04);
+      }
+
+      .hero-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(7, 9, 13, 0.96) 0%, rgba(7, 9, 13, 0.9) 35%, rgba(7, 9, 13, 0.42) 72%, rgba(7, 9, 13, 0.8) 100%),
+          linear-gradient(180deg, rgba(7, 9, 13, 0.62) 0%, rgba(7, 9, 13, 0.2) 48%, rgba(7, 9, 13, 0.96) 100%);
+      }
+
+      .hero-grid {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background-image:
+          linear-gradient(rgba(216, 255, 62, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(216, 255, 62, 0.04) 1px, transparent 1px);
+        background-size: 42px 42px;
+        mask-image: radial-gradient(circle at 66% 44%, black 0 44%, transparent 74%);
+        opacity: 0.7;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        min-height: 94svh;
+        padding: calc(var(--header-height) + 56px) 0 74px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.5fr);
+        gap: 42px;
+        align-items: center;
+      }
+
+      .hero-copy {
+        max-width: 760px;
+        animation: heroReveal 760ms ease both;
+      }
+
+      .hero-name {
+        color: var(--accent);
+        font-family: "Unbounded", ui-sans-serif, sans-serif;
+        font-size: clamp(18px, 2.2vw, 26px);
+        font-weight: 700;
+      }
+
+      h1 {
+        max-width: 780px;
+        margin-top: 16px;
+        font-family: "Unbounded", ui-sans-serif, sans-serif;
+        font-size: clamp(42px, 5.6vw, 76px);
+        font-weight: 700;
+        line-height: 0.92;
+        letter-spacing: 0;
+      }
+
+      .hero-lead {
+        max-width: 660px;
+        margin-top: 24px;
+        color: rgba(248, 247, 239, 0.76);
+        font-size: clamp(18px, 1.8vw, 22px);
+        line-height: 1.46;
+        font-weight: 600;
+      }
+
+      .hero-actions {
+        margin-top: 32px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .button {
+        min-height: 54px;
+        padding: 0 22px;
+        border: 1px solid transparent;
+        font-size: 15px;
+      }
+
+      .button-primary {
+        background: var(--accent);
+        color: #10140b;
+        box-shadow: 0 18px 52px rgba(216, 255, 62, 0.24);
+      }
+
+      .button-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 24px 62px rgba(216, 255, 62, 0.32);
+      }
+
+      .button-secondary {
+        border-color: rgba(248, 247, 239, 0.24);
+        background: rgba(248, 247, 239, 0.08);
+        color: #f8f7ef;
+        backdrop-filter: blur(16px);
+      }
+
+      .button-secondary:hover {
+        border-color: rgba(216, 255, 62, 0.62);
+        color: var(--accent);
+        transform: translateY(-2px);
+      }
+
+      .contact-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .contact-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 40px;
+        padding: 0 13px;
+        border: 1px solid rgba(248, 247, 239, 0.18);
+        border-radius: var(--radius);
+        background: rgba(248, 247, 239, 0.07);
+        color: rgba(248, 247, 239, 0.82);
+        font-size: 13px;
+        font-weight: 800;
+        backdrop-filter: blur(14px);
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          color 180ms ease,
+          background 180ms ease;
+      }
+
+      .contact-link:hover {
+        transform: translateY(-2px);
+        border-color: rgba(216, 255, 62, 0.62);
+        color: var(--accent);
+        background: rgba(216, 255, 62, 0.08);
+      }
+
+      .hero-signal {
+        max-width: 420px;
+        margin-left: auto;
+        display: grid;
+        gap: 16px;
+        color: rgba(248, 247, 239, 0.78);
+        animation: heroReveal 760ms ease 130ms both;
+      }
+
+      .signal-line {
+        position: relative;
+        min-height: 76px;
+        padding: 18px 0 18px 28px;
+        border-top: 1px solid var(--line-dark);
+        font-size: 15px;
+        line-height: 1.45;
+      }
+
+      .signal-line::before {
+        content: "";
+        position: absolute;
+        top: 22px;
+        left: 0;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 34px rgba(216, 255, 62, 0.9);
+        animation: pulseNode 2.7s ease-in-out infinite;
+      }
+
+      .hero-scroll {
+        position: absolute;
+        left: max(20px, calc((100vw - var(--container)) / 2));
+        bottom: 22px;
+        z-index: 3;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: rgba(248, 247, 239, 0.54);
+        font-size: 12px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .hero-scroll::before {
+        content: "";
+        width: 34px;
+        height: 1px;
+        background: rgba(216, 255, 62, 0.55);
+      }
+
+      .section {
+        padding: 92px 0;
+      }
+
+      .section-kicker {
+        color: var(--warm);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .section-heading {
+        display: grid;
+        grid-template-columns: minmax(0, 0.78fr) minmax(280px, 0.52fr);
+        gap: 48px;
+        align-items: end;
+        margin-bottom: 46px;
+      }
+
+      h2 {
+        margin-top: 10px;
+        font-family: "Unbounded", ui-sans-serif, sans-serif;
+        font-size: clamp(32px, 4.2vw, 58px);
+        line-height: 1.02;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+
+      .section-lead {
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.55;
+        font-weight: 600;
+      }
+
+      .services {
+        background: var(--bg);
+      }
+
+      .service-list {
+        display: grid;
+        border-top: 1px solid var(--line);
+      }
+
+      .service-item {
+        display: grid;
+        grid-template-columns: 64px minmax(0, 0.58fr) minmax(300px, 0.56fr);
+        gap: 26px;
+        align-items: start;
+        padding: 28px 0;
+        border-bottom: 1px solid var(--line);
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .service-item:hover {
+        transform: translateX(6px);
+        border-color: rgba(22, 21, 17, 0.36);
+      }
+
+      .service-icon {
+        width: 48px;
+        height: 48px;
+        display: grid;
+        place-items: center;
+        border-radius: var(--radius);
+        background: var(--ink);
+        color: var(--accent);
+      }
+
+      .service-item h3 {
+        font-size: clamp(22px, 2.4vw, 32px);
+        line-height: 1.08;
+        font-weight: 800;
+      }
+
+      .service-item p {
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.55;
+        font-weight: 600;
+      }
+
+      .process {
+        background: var(--paper);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+      }
+
+      .process-step {
+        min-height: 270px;
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: var(--paper);
+      }
+
+      .step-number {
+        color: var(--warm);
+        font-family: "Unbounded", ui-sans-serif, sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .process-step h3 {
+        max-width: 260px;
+        font-size: 25px;
+        line-height: 1.12;
+        font-weight: 800;
+      }
+
+      .process-step p {
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.55;
+        font-weight: 600;
+      }
+
+      .workflow {
+        color: #f8f7ef;
+        background:
+          radial-gradient(circle at 74% 28%, rgba(216, 255, 62, 0.14), transparent 30%),
+          linear-gradient(180deg, var(--hero-2), var(--hero));
+      }
+
+      .workflow .section-kicker {
+        color: var(--accent);
+      }
+
+      .workflow .section-lead {
+        color: var(--muted-dark);
+      }
+
+      .workflow-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 0.76fr) minmax(320px, 0.72fr);
+        gap: 48px;
+        align-items: start;
+      }
+
+      .workflow-map {
+        position: relative;
+        min-height: 460px;
+        border: 1px solid var(--line-dark);
+        border-radius: var(--radius);
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+        background-size: 34px 34px;
+        overflow: hidden;
+      }
+
+      .workflow-map::before {
+        content: "";
+        position: absolute;
+        inset: 18%;
+        border: 1px solid rgba(216, 255, 62, 0.22);
+        transform: rotate(-8deg);
+      }
+
+      .map-node {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 42px rgba(216, 255, 62, 0.82);
+        animation: floatNode 5.4s ease-in-out infinite;
+      }
+
+      .map-node:nth-child(1) { top: 19%; left: 18%; }
+      .map-node:nth-child(2) { top: 36%; right: 19%; background: var(--accent-2); animation-delay: -1.4s; }
+      .map-node:nth-child(3) { bottom: 22%; left: 36%; background: var(--warm); animation-delay: -2.7s; }
+      .map-node:nth-child(4) { bottom: 28%; right: 24%; animation-delay: -3.5s; }
+
+      .map-label {
+        position: absolute;
+        max-width: 176px;
+        padding: 12px 14px;
+        border: 1px solid rgba(248, 247, 239, 0.14);
+        border-radius: var(--radius);
+        background: rgba(7, 9, 13, 0.68);
+        color: rgba(248, 247, 239, 0.82);
+        font-size: 13px;
+        line-height: 1.35;
+        backdrop-filter: blur(12px);
+      }
+
+      .map-label:nth-of-type(1) { top: 12%; left: 26%; }
+      .map-label:nth-of-type(2) { top: 44%; right: 10%; }
+      .map-label:nth-of-type(3) { bottom: 13%; left: 12%; }
+
+      .workflow-copy {
+        display: grid;
+        gap: 18px;
+      }
+
+      .workflow-copy p {
+        color: var(--muted-dark);
+        font-size: 17px;
+        line-height: 1.58;
+        font-weight: 600;
+      }
+
+      .workflow-points {
+        display: grid;
+        gap: 14px;
+        margin: 18px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .workflow-points li {
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 14px;
+        align-items: start;
+        color: rgba(248, 247, 239, 0.82);
+        font-size: 16px;
+        line-height: 1.48;
+        font-weight: 600;
+      }
+
+      .point-icon {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border-radius: var(--radius);
+        background: rgba(216, 255, 62, 0.1);
+        color: var(--accent);
+      }
+
+      .about {
+        background: var(--bg);
+      }
+
+      .about-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 0.72fr) minmax(320px, 0.58fr);
+        gap: 54px;
+        align-items: start;
+      }
+
+      .about-copy {
+        display: grid;
+        gap: 20px;
+      }
+
+      .about-copy p {
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.58;
+        font-weight: 600;
+      }
+
+      .about-proof {
+        display: grid;
+        gap: 16px;
+        border-left: 2px solid var(--ink);
+        padding-left: 24px;
+      }
+
+      .proof-item {
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .proof-item:last-child {
+        border-bottom: 0;
+      }
+
+      .proof-item strong {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--ink);
+        font-size: 16px;
+      }
+
+      .proof-item span {
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.48;
+        font-weight: 600;
+      }
+
+      .cta-section {
+        padding: 0 0 104px;
+      }
+
+      .cta-band {
+        position: relative;
+        overflow: hidden;
+        min-height: 360px;
+        display: grid;
+        align-items: end;
+        padding: 42px;
+        border-radius: var(--radius);
+        color: #f8f7ef;
+        background:
+          radial-gradient(circle at 80% 20%, rgba(216, 255, 62, 0.18), transparent 28%),
+          linear-gradient(135deg, #0b0e14, #161914);
+      }
+
+      .cta-band::after {
+        content: "";
+        position: absolute;
+        inset: 18px;
+        border: 1px solid rgba(248, 247, 239, 0.12);
+        pointer-events: none;
+      }
+
+      .cta-content {
+        position: relative;
+        z-index: 1;
+        max-width: 820px;
+      }
+
+      .cta-band h2 {
+        max-width: 800px;
+      }
+
+      .cta-band p {
+        max-width: 620px;
+        margin-top: 18px;
+        color: var(--muted-dark);
+        font-size: 18px;
+        line-height: 1.55;
+        font-weight: 600;
+      }
+
+      .cta-band .button {
+        margin-top: 28px;
+      }
+
+      .cta-band .contact-strip {
+        margin-top: 18px;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 24px 0;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .footer-inner {
+        width: min(var(--container), calc(100% - 40px));
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        align-items: center;
+      }
+
+      .footer-links a {
+        transition: color 180ms ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--ink);
+      }
+
+      .footer-note {
+        width: min(var(--container), calc(100% - 40px));
+        margin: 10px auto 0;
+        color: rgba(113, 107, 96, 0.82);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 640ms ease,
+          transform 640ms ease;
+      }
+
+      [data-reveal].is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @keyframes heroReveal {
+        from {
+          opacity: 0;
+          transform: translateY(22px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulseNode {
+        0%,
+        100% {
+          transform: scale(0.82);
+          opacity: 0.78;
+        }
+
+        50% {
+          transform: scale(1.12);
+          opacity: 1;
+        }
+      }
+
+      @keyframes floatNode {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+
+        50% {
+          transform: translate3d(8px, -12px, 0) scale(1.15);
+        }
+      }
+
+      @media (max-width: 980px) {
+        :root {
+          --header-height: 66px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .hero-content,
+        .section-heading,
+        .workflow-layout,
+        .about-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-content {
+          align-items: end;
+          gap: 32px;
+        }
+
+        .hero-signal {
+          max-width: none;
+          margin-left: 0;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .service-item {
+          grid-template-columns: 52px minmax(0, 1fr);
+        }
+
+        .service-item p {
+          grid-column: 2;
+        }
+
+        .process-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .nav,
+        .container,
+        .footer-note,
+        .footer-inner {
+          width: min(var(--container), calc(100% - 28px));
+        }
+
+        .brand {
+          min-width: auto;
+        }
+
+        .brand-role,
+        .hero-scroll {
+          display: none;
+        }
+
+        .brand {
+          gap: 8px;
+        }
+
+        .brand-mark {
+          width: 34px;
+          height: 34px;
+        }
+
+        .brand-name {
+          font-size: 13px;
+        }
+
+        .nav {
+          gap: 10px;
+        }
+
+        .nav-actions {
+          gap: 8px;
+        }
+
+        .language-switcher {
+          min-height: 36px;
+          padding: 2px;
+        }
+
+        .language-switcher button {
+          min-width: 30px;
+          min-height: 30px;
+          padding: 0 6px;
+          font-size: 11px;
+        }
+
+        .header-cta {
+          width: 36px;
+          min-height: 36px;
+          padding: 0;
+          font-size: 13px;
+        }
+
+        .header-cta span {
+          display: none;
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        .hero-content {
+          min-height: auto;
+          padding: calc(var(--header-height) + 44px) 0 52px;
+        }
+
+        h1 {
+          max-width: 100%;
+          font-size: clamp(30px, 8.8vw, 38px);
+          line-height: 0.96;
+        }
+
+        .hero-lead,
+        .section-lead,
+        .about-copy p {
+          font-size: 16px;
+        }
+
+        .hero-actions {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .button {
+          width: 100%;
+          min-height: 52px;
+        }
+
+        .hero-signal {
+          display: none;
+        }
+
+        .section {
+          padding: 66px 0;
+        }
+
+        .section-heading {
+          gap: 18px;
+          margin-bottom: 34px;
+        }
+
+        h2 {
+          font-size: clamp(29px, 9vw, 40px);
+        }
+
+        .service-item {
+          grid-template-columns: 1fr;
+          gap: 14px;
+          padding: 24px 0;
+        }
+
+        .service-item p {
+          grid-column: auto;
+        }
+
+        .service-item:hover {
+          transform: none;
+        }
+
+        .workflow-map {
+          min-height: 360px;
+        }
+
+        .map-label {
+          max-width: 152px;
+          font-size: 12px;
+        }
+
+        .about-proof {
+          padding-left: 18px;
+        }
+
+        .cta-section {
+          padding-bottom: 76px;
+        }
+
+        .cta-band {
+          min-height: 330px;
+          padding: 28px;
+        }
+
+        .footer-inner {
+          flex-direction: column;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+
+        [data-reveal] {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="home.skipLink">К содержанию</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Основная навигация" data-i18n-attr="aria-label:home.nav.aria">
+        <a class="brand" href="#top" aria-label="На первый экран" data-i18n-attr="aria-label:home.nav.brandAria">
+          <span class="brand-mark">DC</span>
+          <span class="brand-text">
+            <span class="brand-name" data-i18n="home.brand.name">Денис Черных</span>
+            <span class="brand-role" data-i18n="home.brand.role">Frontend / AI / Automation</span>
+          </span>
+        </a>
+        <div class="nav-links" aria-label="Разделы сайта" data-i18n-attr="aria-label:home.nav.sectionsAria">
+          <a href="#services" data-i18n="home.nav.services">Услуги</a>
+          <a href="#process" data-i18n="home.nav.process">Процесс</a>
+          <a href="#workflow" data-i18n="home.nav.workflow">AI workflow</a>
+          <a href="#contact" data-i18n="home.nav.contact">Контакты</a>
+        </div>
+        <div class="nav-actions">
+          <div class="language-switcher" aria-label="Язык сайта" data-i18n-attr="aria-label:languageSwitcher.label">
+            <span class="visually-hidden" data-i18n="languageSwitcher.label">Язык сайта</span>
+            <button type="button" data-i18n-lang="ru" aria-label="Русский" data-i18n-attr="aria-label:languageSwitcher.ru">RU</button>
+            <button type="button" data-i18n-lang="en" aria-label="English" data-i18n-attr="aria-label:languageSwitcher.en">EN</button>
+            <button type="button" data-i18n-lang="de" aria-label="Deutsch" data-i18n-attr="aria-label:languageSwitcher.de">DE</button>
+          </div>
+          <a class="header-cta" href="mailto:chernykh.d.o@yandex.com">
+            <i data-lucide="mail" class="icon" aria-hidden="true"></i>
+            <span data-i18n="home.nav.cta">Написать</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-label="Интро" data-i18n-attr="aria-label:home.hero.aria">
+        <div class="hero-media">
+          <img
+            class="hero-image"
+            src="assets/ai-workflow-hero.png"
+            alt="Абстрактная AI workflow сцена с темной рабочей поверхностью, световыми узлами и связями"
+            data-i18n-attr="alt:home.hero.imageAlt"
+            width="1792"
+            height="1024"
+          />
+        </div>
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="container hero-content">
+          <div class="hero-copy">
+            <div class="hero-name" data-i18n="home.brand.name">Денис Черных</div>
+            <h1 data-i18n="home.hero.title">Frontend, AI и автоматизация в одном рабочем контуре</h1>
+            <p class="hero-lead" data-i18n="home.hero.lead">
+              Запускаю страницы, интерфейсы и автоматизацию, где дизайн, код, контент и AI-инструменты работают как одна система.
+            </p>
+            <div class="hero-actions" aria-label="Основные действия" data-i18n-attr="aria-label:home.hero.actionsAria">
+              <a class="button button-primary" href="mailto:chernykh.d.o@yandex.com">
+                <span data-i18n="home.actions.email">Написать на почту</span>
+                <i data-lucide="arrow-up-right" class="icon" aria-hidden="true"></i>
+              </a>
+              <a class="button button-secondary" href="https://t.me/ChDenis" target="_blank" rel="noreferrer">
+                Telegram
+                <i data-lucide="send" class="icon" aria-hidden="true"></i>
+              </a>
+              <a class="button button-secondary" href="https://wa.me/79501971004" target="_blank" rel="noreferrer">
+                WhatsApp
+                <i data-lucide="message-circle" class="icon" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <aside class="hero-signal" aria-label="Фокус работы" data-i18n-attr="aria-label:home.hero.signalAria">
+            <div class="signal-line" data-i18n="home.hero.signal1">Собираю интерфейсы, которые выглядят живыми, а не просто сверстанными.</div>
+            <div class="signal-line" data-i18n="home.hero.signal2">Подключаю AI там, где он сокращает путь от идеи до рабочей версии.</div>
+            <div class="signal-line" data-i18n="home.hero.signal3">Довожу сценарии до понятного состояния: структура, адаптив, формы, состояния.</div>
+          </aside>
+        </div>
+        <a class="hero-scroll" href="#services" data-i18n="home.hero.scroll">Scroll</a>
+      </section>
+
+      <section class="section services" id="services">
+        <div class="container">
+          <div class="section-heading" data-reveal>
+            <div>
+              <div class="section-kicker" data-i18n="home.services.kicker">Services</div>
+              <h2 data-i18n="home.services.title">Запускаю страницы, интерфейсы и автоматизацию без лишнего шума</h2>
+            </div>
+            <p class="section-lead" data-i18n="home.services.lead">
+              Можно прийти с макетом, старой страницей, списком правок или сырой идеей. Я помогу собрать понятный рабочий результат.
+            </p>
+          </div>
+
+          <div class="service-list">
+            <article class="service-item" data-reveal>
+              <span class="service-icon"><i data-lucide="layout-template" class="icon" aria-hidden="true"></i></span>
+              <h3 data-i18n="home.services.item1.title">Верстка и запуск</h3>
+              <p data-i18n="home.services.item1.text">Соберу лендинг, страницу или экран по макету, аккуратно перенесу сетку, типографику, адаптив и интерактивные состояния.</p>
+            </article>
+
+            <article class="service-item" data-reveal>
+              <span class="service-icon"><i data-lucide="sparkles" class="icon" aria-hidden="true"></i></span>
+              <h3 data-i18n="home.services.item2.title">AI-усиление</h3>
+              <p data-i18n="home.services.item2.text">Использую AI как рабочий ускоритель: для прототипов, вариантов структуры, проверки кода, контента и связок между сервисами.</p>
+            </article>
+
+            <article class="service-item" data-reveal>
+              <span class="service-icon"><i data-lucide="workflow" class="icon" aria-hidden="true"></i></span>
+              <h3 data-i18n="home.services.item3.title">Автоматизация процессов</h3>
+              <p data-i18n="home.services.item3.text">Связываю формы, контент, CMS, таблицы, Telegram mini apps и API, чтобы убрать ручной перенос и повторяющиеся действия.</p>
+            </article>
+
+            <article class="service-item" data-reveal>
+              <span class="service-icon"><i data-lucide="wand-sparkles" class="icon" aria-hidden="true"></i></span>
+              <h3 data-i18n="home.services.item4.title">Polish интерфейсов</h3>
+              <p data-i18n="home.services.item4.text">Исправляю визуальные баги, пустые состояния, hover-эффекты, ошибки форм и мобильные поломки, которые портят ощущение качества.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section process" id="process">
+        <div class="container">
+          <div class="section-heading" data-reveal>
+            <div>
+              <div class="section-kicker" data-i18n="home.process.kicker">Process</div>
+              <h2 data-i18n="home.process.title">Как пойдет работа</h2>
+            </div>
+            <p class="section-lead" data-i18n="home.process.lead">
+              Без тяжелого ТЗ на старте. Сначала быстро отделяем важное от лишнего, затем собираем версию, которую можно показать и проверить.
+            </p>
+          </div>
+
+          <div class="process-grid">
+            <article class="process-step" data-reveal>
+              <span class="step-number">01</span>
+              <div>
+                <h3 data-i18n="home.process.step1.title">Разбираю задачу</h3>
+                <p data-i18n="home.process.step1.text">Понимаю, что есть сейчас, где ломается сценарий, что нужно пользователю и какой минимальный результат даст пользу.</p>
+              </div>
+            </article>
+            <article class="process-step" data-reveal>
+              <span class="step-number">02</span>
+              <div>
+                <h3 data-i18n="home.process.step2.title">Проектирую рабочий контур</h3>
+                <p data-i18n="home.process.step2.text">Выстраиваю блоки, состояния, данные и связи между frontend, AI, CMS, API или Telegram, если они нужны задаче.</p>
+              </div>
+            </article>
+            <article class="process-step" data-reveal>
+              <span class="step-number">03</span>
+              <div>
+                <h3 data-i18n="home.process.step3.title">Собираю и проверяю</h3>
+                <p data-i18n="home.process.step3.text">Верстаю, добавляю поведение, проверяю адаптив, CTA, формы, пустые состояния и детали, которые делают интерфейс уверенным.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section workflow" id="workflow">
+        <div class="container workflow-layout">
+          <div data-reveal>
+            <div class="section-kicker" data-i18n="home.workflow.kicker">AI workflow</div>
+            <h2 data-i18n="home.workflow.title">AI не заменяет смысл задачи, а ускоряет рабочий контур</h2>
+            <div class="workflow-copy">
+              <p data-i18n="home.workflow.text1">
+                Я использую AI-инструменты как часть процесса: быстрее исследовать варианты, собрать прототип, проверить код и найти короткий путь между идеей и рабочей версией.
+              </p>
+              <p data-i18n="home.workflow.text2">
+                Поэтому результат не выглядит как случайная генерация. Сначала сценарий и интерфейс, затем AI там, где он реально экономит время.
+              </p>
+            </div>
+          </div>
+
+          <div data-reveal>
+            <div class="workflow-map" aria-label="Схема AI workflow" data-i18n-attr="aria-label:home.workflow.mapAria">
+              <span class="map-node"></span>
+              <span class="map-node"></span>
+              <span class="map-node"></span>
+              <span class="map-node"></span>
+              <span class="map-label" data-i18n="home.workflow.map1">идея → структура</span>
+              <span class="map-label" data-i18n="home.workflow.map2">макет → frontend</span>
+              <span class="map-label" data-i18n="home.workflow.map3">форма → данные → действие</span>
+            </div>
+            <ul class="workflow-points">
+              <li>
+                <span class="point-icon"><i data-lucide="brain-circuit" class="icon" aria-hidden="true"></i></span>
+                <span data-i18n="home.workflow.point1">AI помогает быстрее найти варианты, но финальное решение остается человеческим и продуктовым.</span>
+              </li>
+              <li>
+                <span class="point-icon"><i data-lucide="blocks" class="icon" aria-hidden="true"></i></span>
+                <span data-i18n="home.workflow.point2">Frontend, контент, CMS, API и Telegram можно собрать в один понятный сценарий.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about" id="about">
+        <div class="container about-layout">
+          <div class="about-copy" data-reveal>
+            <div>
+              <div class="section-kicker" data-i18n="home.about.kicker">About</div>
+              <h2 data-i18n="home.about.title">Обо мне</h2>
+            </div>
+            <p data-i18n="home.about.text1">
+              Я frontend-разработчик, который любит, когда интерфейс не только аккуратно сверстан, но и помогает человеку быстрее сделать нужное действие.
+            </p>
+            <p data-i18n="home.about.text2">
+              Беру задачи по лендингам, интерфейсам, формам, адаптиву, Telegram mini apps и доработке существующих страниц. Внимательно отношусь к типографике, состояниям, отступам, скорости и тому, как сценарий ощущается в реальном использовании.
+            </p>
+          </div>
+
+          <div class="about-proof" data-reveal>
+            <div class="proof-item">
+              <strong data-i18n="home.about.proof1.title">Фокус на результате</strong>
+              <span data-i18n="home.about.proof1.text">Не добавляю эффект ради эффекта: каждый блок должен объяснять, доказывать или вести к действию.</span>
+            </div>
+            <div class="proof-item">
+              <strong data-i18n="home.about.proof2.title">Аккуратная реализация</strong>
+              <span data-i18n="home.about.proof2.text">Проверяю адаптив, hover, ошибки, пустые состояния и мелкие места, где сайт обычно начинает выглядеть дешево.</span>
+            </div>
+            <div class="proof-item">
+              <strong data-i18n="home.about.proof3.title">Шире классического frontend</strong>
+              <span data-i18n="home.about.proof3.text">Могу связать интерфейс с контентом, AI-инструментами, таблицами, CMS, Telegram и простыми автоматизациями.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container cta-section" id="contact">
+        <div class="cta-band" data-reveal>
+          <div class="cta-content">
+            <div class="section-kicker" data-i18n="home.contact.kicker">Contact</div>
+            <h2 data-i18n="home.contact.title">Выбери удобный способ связи, и я помогу превратить задачу в понятный следующий шаг</h2>
+            <p data-i18n="home.contact.lead">
+              Достаточно коротко описать, что есть сейчас, что неудобно и какой результат хочется получить. Дальше предложу реалистичный маршрут.
+            </p>
+            <a class="button button-primary" href="mailto:chernykh.d.o@yandex.com">
+              <span data-i18n="home.actions.email">Написать на почту</span>
+              <i data-lucide="mail" class="icon" aria-hidden="true"></i>
+            </a>
+            <div class="contact-strip" aria-label="Контактные каналы" data-i18n-attr="aria-label:home.contact.channelsAria">
+              <a class="contact-link" href="https://t.me/ChDenis" target="_blank" rel="noreferrer">
+                <i data-lucide="send" class="icon" aria-hidden="true"></i>
+                Telegram
+              </a>
+              <a class="contact-link" href="https://wa.me/79501971004" target="_blank" rel="noreferrer">
+                <i data-lucide="message-circle" class="icon" aria-hidden="true"></i>
+                WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <span data-i18n="home.footer.copyright">© 2026 Денис Черных · Frontend / AI / Automation</span>
+        <div class="footer-links">
+          <a href="mailto:chernykh.d.o@yandex.com">Email</a>
+          <a href="https://wa.me/79501971004" target="_blank" rel="noreferrer">WhatsApp</a>
+          <a href="https://t.me/ChDenis" target="_blank" rel="noreferrer">Telegram: @ChDenis</a>
+          <a href="privacy.html" data-language-aware data-i18n="home.footer.privacy">Политика конфиденциальности</a>
+        </div>
+      </div>
+      <p class="footer-note" data-i18n="home.footer.note">
+        Информация на сайте носит справочный характер и не является публичной офертой.
+      </p>
+    </footer>
+
+    <script src="assets/i18n.js"></script>
+    <script src="assets/vendor/lucide.min.js"></script>
+    <script>
+      const revealTargets = document.querySelectorAll("[data-reveal]");
+
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                revealObserver.unobserve(entry.target);
+              }
+            }
+          },
+          { threshold: 0.16 }
+        );
+
+        revealTargets.forEach((target) => revealObserver.observe(target));
+      } else {
+        revealTargets.forEach((target) => target.classList.add("is-visible"));
+      }
+
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    </script>
+  </body>
+</html>

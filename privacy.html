@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="ru" data-page="privacy">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Политика конфиденциальности — Денис Черных</title>
+    <meta
+      name="description"
+      content="Политика конфиденциальности сайта Дениса Черных: какие данные обрабатываются при посещении сайта и обращении через Email, Telegram или WhatsApp."
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <style>
+      @font-face {
+        font-family: "Manrope";
+        src: url("assets/fonts/Manrope-wght.ttf") format("truetype");
+        font-weight: 400 800;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Unbounded";
+        src: url("assets/fonts/Unbounded-wght.ttf") format("truetype");
+        font-weight: 500 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --bg: #f4efe6;
+        --paper: #fffaf1;
+        --ink: #161511;
+        --muted: #716b60;
+        --line: rgba(22, 21, 17, 0.14);
+        --accent: #d8ff3e;
+        --warm: #f0734f;
+        --radius: 8px;
+        --container: 920px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Manrope", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      p,
+      h1,
+      h2 {
+        margin: 0;
+      }
+
+      .page {
+        min-height: 100svh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+      }
+
+      header,
+      footer {
+        border-color: var(--line);
+      }
+
+      header {
+        border-bottom: 1px solid var(--line);
+        background: rgba(244, 239, 230, 0.86);
+      }
+
+      .nav,
+      .footer-inner,
+      main {
+        width: min(var(--container), calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .nav {
+        min-height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+      }
+
+      .nav-actions {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(22, 21, 17, 0.18);
+        border-radius: var(--radius);
+        background: var(--ink);
+        color: var(--accent);
+        font-family: "Unbounded", ui-sans-serif, sans-serif;
+        font-size: 12px;
+      }
+
+      .back-link,
+      .legal-link {
+        font-size: 14px;
+        font-weight: 800;
+        color: var(--muted);
+        transition: color 180ms ease;
+      }
+
+      .back-link:hover,
+      .legal-link:hover {
+        color: var(--ink);
+      }
+
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .language-switcher {
+        min-height: 40px;
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+        padding: 3px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(255, 250, 241, 0.74);
+      }
+
+      .language-switcher button {
+        min-width: 34px;
+        min-height: 32px;
+        padding: 0 8px;
+        border: 0;
+        border-radius: 6px;
+        background: transparent;
+        color: var(--muted);
+        font: inherit;
+        font-size: 12px;
+        font-weight: 900;
+        cursor: pointer;
+        transition:
+          background 180ms ease,
+          color 180ms ease;
+      }
+
+      .language-switcher button:hover,
+      .language-switcher button[aria-pressed="true"] {
+        background: var(--ink);
+        color: var(--accent);
+      }
+
+      main {
+        padding: 72px 0 88px;
+      }
+
+      .eyebrow {
+        color: var(--warm);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 780px;
+        margin-top: 12px;
+        font-family: "Unbounded", ui-sans-serif, sans-serif;
+        font-size: clamp(36px, 6vw, 64px);
+        line-height: 1;
+      }
+
+      .lead {
+        max-width: 720px;
+        margin-top: 22px;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.58;
+        font-weight: 600;
+      }
+
+      .content {
+        margin-top: 46px;
+        display: grid;
+        gap: 18px;
+      }
+
+      section {
+        padding: 26px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--paper);
+      }
+
+      h2 {
+        font-size: 22px;
+        line-height: 1.16;
+      }
+
+      section p,
+      li {
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.62;
+        font-weight: 600;
+      }
+
+      section p,
+      ul {
+        margin-top: 12px;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li + li {
+        margin-top: 8px;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 24px 0;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      @media (max-width: 680px) {
+        .nav,
+        .footer-inner,
+        main {
+          width: min(var(--container), calc(100% - 28px));
+        }
+
+        .nav,
+        .footer-inner {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .nav-actions {
+          flex-wrap: wrap;
+          align-items: flex-start;
+        }
+
+        main {
+          padding: 52px 0 68px;
+        }
+
+        section {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <nav class="nav" aria-label="Навигация по юридическим страницам" data-i18n-attr="aria-label:privacy.nav.aria">
+          <a class="brand" href="index.html" data-language-aware>
+            <span class="brand-mark">DC</span>
+            <span data-i18n="privacy.brand.name">Денис Черных</span>
+          </a>
+          <div class="nav-actions">
+            <div class="language-switcher" aria-label="Язык сайта" data-i18n-attr="aria-label:languageSwitcher.label">
+              <span class="visually-hidden" data-i18n="languageSwitcher.label">Язык сайта</span>
+              <button type="button" data-i18n-lang="ru" aria-label="Русский" data-i18n-attr="aria-label:languageSwitcher.ru">RU</button>
+              <button type="button" data-i18n-lang="en" aria-label="English" data-i18n-attr="aria-label:languageSwitcher.en">EN</button>
+              <button type="button" data-i18n-lang="de" aria-label="Deutsch" data-i18n-attr="aria-label:languageSwitcher.de">DE</button>
+            </div>
+            <a class="back-link" href="index.html" data-language-aware data-i18n="privacy.nav.back">Вернуться на сайт</a>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <div class="eyebrow" data-i18n="privacy.eyebrow">Privacy Policy</div>
+        <h1 data-i18n="privacy.title">Политика конфиденциальности</h1>
+        <p class="lead" data-i18n="privacy.lead">
+          Эта страница объясняет, какие данные могут обрабатываться при посещении сайта и обращении через Email, Telegram или WhatsApp.
+        </p>
+
+        <div class="content">
+          <section>
+            <h2 data-i18n="privacy.section1.title">1. Оператор данных</h2>
+            <p>
+              <span data-i18n="privacy.section1.text">Оператор: Денис Черных. Для вопросов по обработке персональных данных можно написать на email:</span>
+              <a class="legal-link" href="mailto:chernykh.d.o@yandex.com">chernykh.d.o@yandex.com</a>.
+            </p>
+          </section>
+
+          <section>
+            <h2 data-i18n="privacy.section2.title">2. Какие данные обрабатываются</h2>
+            <ul>
+              <li data-i18n="privacy.section2.item1">технические данные посещения сайта, которые может обрабатывать GitHub Pages для работы и защиты сервиса: IP-адрес, дата и время запроса, user agent, запрошенная страница;</li>
+              <li data-i18n="privacy.section2.item2">данные, которые вы сами отправляете при обращении: имя или ник, email, номер телефона, аккаунт в мессенджере, содержание сообщения и приложенные материалы;</li>
+              <li data-i18n="privacy.section2.item3">данные переписки в Email, Telegram или WhatsApp после перехода по внешним ссылкам с сайта.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 data-i18n="privacy.section3.title">3. Цели обработки</h2>
+            <ul>
+              <li data-i18n="privacy.section3.item1">ответ на обращение и обсуждение проекта;</li>
+              <li data-i18n="privacy.section3.item2">подготовка предложения, оценка задачи и дальнейшее взаимодействие по проекту;</li>
+              <li data-i18n="privacy.section3.item3">обеспечение доступности, безопасности и корректной работы сайта.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 data-i18n="privacy.section4.title">4. Правовые основания</h2>
+            <p data-i18n="privacy.section4.text">
+              Данные обрабатываются на основании вашего обращения, необходимости ответить на запрос и подготовить возможный договор, а также законного интереса в поддержании безопасности сайта. Если отдельное действие требует согласия, оно запрашивается отдельно.
+            </p>
+          </section>
+
+          <section>
+            <h2 data-i18n="privacy.section5.title">5. Сторонние сервисы</h2>
+            <p data-i18n="privacy.section5.text">
+              Сайт размещен на GitHub Pages. При переходе в Telegram, WhatsApp или при отправке email данные обрабатываются соответствующими сервисами по их правилам. Шрифты и иконки подключены локально, внешние Google Fonts и CDN для иконок на сайте не используются.
+            </p>
+          </section>
+
+          <section>
+            <h2 data-i18n="privacy.section6.title">6. Cookies и аналитика</h2>
+            <p data-i18n="privacy.section6.text">
+              На сайте не используются cookies, рекламные пиксели, формы сбора заявок и встроенная аналитика. Браузерное localStorage может использоваться только для сохранения выбранного языка интерфейса.
+            </p>
+          </section>
+
+          <section>
+            <h2 data-i18n="privacy.section7.title">7. Срок хранения</h2>
+            <p data-i18n="privacy.section7.text">
+              Переписка и материалы по обращению хранятся столько, сколько нужно для ответа, обсуждения проекта, исполнения договоренностей и защиты законных интересов. По запросу данные могут быть удалены, если нет обязанности или разумной необходимости хранить их дольше.
+            </p>
+          </section>
+
+          <section>
+            <h2 data-i18n="privacy.section8.title">8. Ваши права</h2>
+            <p>
+              <span data-i18n="privacy.section8.text">Вы можете запросить доступ к своим данным, уточнение, удаление, ограничение обработки или отзыв согласия, если обработка основана на согласии. Для этого напишите на</span>
+              <a class="legal-link" href="mailto:chernykh.d.o@yandex.com">chernykh.d.o@yandex.com</a>.
+            </p>
+          </section>
+
+          <section>
+            <h2 data-i18n="privacy.section9.title">9. Обновления</h2>
+            <p data-i18n="privacy.section9.text">
+              Политика может обновляться при изменении сайта, контактных каналов, сервисов или правовых требований. Актуальная версия опубликована на этой странице. Дата обновления: 03.06.2026.
+            </p>
+          </section>
+        </div>
+      </main>
+
+      <footer>
+        <div class="footer-inner">
+          <span data-i18n="privacy.footer.copyright">© 2026 Денис Черных</span>
+          <a class="legal-link" href="index.html" data-language-aware data-i18n="privacy.footer.home">На главную</a>
+        </div>
+      </footer>
+    </div>
+    <script src="assets/i18n.js"></script>
+  </body>
+</html>
