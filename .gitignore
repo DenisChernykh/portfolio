@@ -1,1 +1,10 @@
 .superpowers/
+.DS_Store
+node_modules/
+.pnpm-store/
+.env
+.env.local
+.env.production
+.dev.vars
+*.log
+!*.example
